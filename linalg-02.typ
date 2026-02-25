@@ -1,8 +1,6 @@
-// linear_algebra.typ
 #import "template.typ": *
 
-// Apply the template to the whole document
-#show: cheatsheet
+= linalg-02
 
 == Lineare Abbildung $phi: RR^n->RR^m$ (13.1)
 $forall u, v in RR^n, x in RR: phi(x u + v) = x phi(u) + phi(v)$
@@ -28,43 +26,45 @@ $"Kern"(phi)$ und $"Bild"(phi)$ sind UVR. \
 $dim("Kern"(phi)) + dim("Bild"(phi)) = n$ (Dim. Startraum)
 
 == l.A. als Matrix $M_phi in RR^(n times m)$ (13.9)
-// Spalte $j$ = $phi(e_j)$ $thin$ | $thin$ 
-$phi(v) = M_phi dot v$ $thin$ | $thin$ 
+// Spalte $j$ = $phi(e_j)$ $thin$ | $thin$
+$phi(v) = M_phi dot v$ $thin$ | $thin$
 $(M dot v)_i = sum_(j=1)^m M(i,j) dot v_j$ ("Zeile mal Spalte")
 
 1. $A(v + w) = A v + A w$
 2. $A(x v) = x (A v)$
 
 == Matrixmultiplikation $B in RR^(m times k)$ (13.17)
-$(A dot B)(i, j) = sum_(x=1)^m A(i, x) dot B(x, j)$ $thin$ | $thin$ 
-Ergebnis ist in $RR^(n times k)$.
+$(A dot B)(i, j) = sum_(x=1)^m A(i, x) dot B(x, j)$ $thin$ | $thin$ Ergebnis ist
+in $RR^(n times k)$.
 
 == Inverse & Transposition (13.20)
-*Inv.*: $A B = I_n$ $thin$ | $thin$ 
-// *Trans.*: $A^T (i, j) = A(j, i)$. $thin$ | $thin$ 
-*Trans.*: $mat(a,c;b,d)^T= mat(a,b;c,d)$ $thin$ | $thin$ 
-*Symm.*: $A^T = A$
+*Inv.*: $A B = I_n$ $thin$ | $thin$
+// *Trans.*: $A^T (i, j) = A(j, i)$. $thin$ | $thin$
+*Trans.*: $mat(a, c; b, d)^T= mat(a, b; c, d)$ $thin$ | $thin$ *Symm.*:
+$A^T = A$
 
 #recipe("Abbildungsmatrix bestimmen")[
-  1. Nimm die Standardbasisvektoren $e_1, ..., e_n$.
-  2. Berechne die Bilder: $phi(e_1), phi(e_2), ...$
-  3. Bilder = *Spalten* 
+    1. Nimm die Standardbasisvektoren $e_1, ..., e_n$.
+    2. Berechne die Bilder: $phi(e_1), phi(e_2), ...$
+    3. Bilder = *Spalten*
 ]
 
 #recipe("Matrix-Mult. Zeile links mal Spalte rechts")[
-$ mat(a, b; c, d) dot mat(e, f; g, h)
-          = mat(
+    $
+        mat(a, b; c, d) dot mat(e, f; g, h)
+        = mat(
             a dot e + b dot g, a dot f + b dot h;
             c dot e + d dot g, c dot f + d dot h
-          ) $
+        )
+    $
 
-// Merksatz: 
-// Position (1,1): Zeile 1 von A * Spalte 1 von B
-// Position (1,2): Zeile 1 von A * Spalte 2 von B
+    // Merksatz:
+    // Position (1,1): Zeile 1 von A * Spalte 1 von B
+    // Position (1,2): Zeile 1 von A * Spalte 2 von B
 ]
 
 #recipe("Inverse 2x2")[
-  $mat(a, b; c, d)^(-1) = 1/(a d - b c) mat(d, -b; -c, a)$
+    $mat(a, b; c, d)^(-1) = 1/(a d - b c) mat(d, -b; -c, a)$
 ]
 
 // #recipe("Inverse nxn (Gauss-Jordan)")[

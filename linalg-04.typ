@@ -1,11 +1,6 @@
-// linear_algebra.typ
 #import "template.typ": *
 
-// Apply the template to the whole document
-#show: cheatsheet
-
-START_HERE: create main.typ; clean import and show from individual files; jot
-down recipe for batch-search-replace
+= linalg-04
 
 == Koordinatentransformation (15.2, 15.5)
 $K_B (v) = (x_1, ..., x_n)^T$ mit $v = sum_(i=1)^n x_i b_i$.\

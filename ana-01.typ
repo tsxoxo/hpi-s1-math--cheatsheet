@@ -1,36 +1,52 @@
-// linear_algebra.typ
 #import "template.typ": *
 
-// Apply the template to the whole document
-#show: cheatsheet
+= ana-01
 
-== Integrale & Regeln (18.13, 18.14, 18.15, 18.17)
-// *Konstante ziehen* (18.14): $int c dot f(x) thin d x = c dot int f(x) thin d x$.
-// *Standard* (18.13): $int 1/x thin d x = ln(|x|) quad | quad int ln(x) thin d x = x(ln(x) - 1)$.
-// *Partiell* (18.15): $int f'(x) g(x) thin d x = f(x) g(x) - int f(x) g'(x) thin d x$.
-// *Subst.* (18.17): $int_a^b f(g(x)) g'(x) thin d x = int_(g(a))^(g(b)) f(z) thin d z$.
-*Doppelintegrale*: Von innen nach außen (Inneres Integral $arrow.l.r$ Inneres
-Differential).
+== $e^x$ Potenzen & Logs (17.10, 17.11, 17.12)
+*Umkehr*: $log_b (b^x) = x quad | quad b^(log_b (y)) = y$. *Pot*:
+$b^(x+y) = b^x b^y quad | quad b^(x-y) = b^x / b^y quad | quad (b^x)^y = b^(x y) quad | quad a^x b^x = (a b)^x$.
+*Log*:
+$log_b (a c) = log_b (a) + log_b (c) med | med log_b (a/c) = log_b (a) - log_b (c) med | med log_b (a^y) = y log_b (a)$.
+*Basisw.*:
+$log_b (c) = (log_a (c)) / ( log_a (b) ) med | med b^x = a^(x log_a (b))$.
+*exp*: $b^r = exp(r dot ln(b))$
 
-== Logarithmen & Betrag (17.3, 17.7, 17.10, 17.12)
-*Log-Def* (17.10): $log_b (x) = y arrow.l.r b^y = x$. *Log-Produkt* (17.12):
-$log_b (x dot y) = log_b (x) + log_b (y)$. *Log-Injektiv* (17.7):
-$log_b (A) = log_b (B) arrow.l.r A = B$ (da exp/log strikt monoton). *Betrag*
-(17.3): "Bei 0 aufteilen" ($++, +-, -+, --$). $x$ für $x >= 0$, sonst $-x$.
+== Betragsfunktion (17.4)
+*Dreiecksungleichung*: $|x+y| <= |x| + |y|$. *Umgekehrt*: $|x| - |y| <= |x+y|$.
+*Multiplikation*: $|x y| = |x| dot |y|$.
 
-== Monotonie & Extrema (17.6, 18.5, 18.6)
-*Extrema* (18.6):
-- *Notwendig* ("Ticket"): $f'(x) = 0$.
-- *Hinreichend* ("Ticket + ID"): $f'(x) = 0$ und $f''(x) eq.not 0$.
-*Monotonie beweisen*:
-- *Primär* (18.5): Ableitungstest (z.B. $f'(x) <= 0 arrow.r$ fallend).
-- *Backup* (17.6): Definition ($a < b arrow.r f(a) >= f(b)$). _Tipp: $(b-a)$
-    ausklammern._
-*Ungleichungen*: Rückwärts lösen ($arrow.l.r$) ist valide, wenn dokumentiert.
+== $f'$ Ableitungen (18.1, 18.2)
+*Standard*:
+$(x^r)' = r x^(r-1) quad | quad (e^x)' = e^x quad | quad (ln(x))' = 1/x$. *Basis
+$b$*: $(b^x)' = ln(b) b^x quad | quad (log_b (x))' = 1/(x ln(b))$. *Produkt*:
+$(f g)' = f'g + f g' quad | quad$ *Quotient*: $(f/g)' = (f'g - f g')/g^2$.
+*Kettenregel*: $(f(g))' = f'(g) dot g'$.
 
-== Taylor Approximation (18.10)
-Beste Approximation durch Polynom $n$-ten Grades an der Stelle $a$:
-$T_n (x) = sum_(k=0)^n (f^((k))(a)) / k! (x - a)^k$
-*Spezialfall $a = 0$*: $f(0) + f'(0)x + (f''(0))/2 x^2 + ...$
 *Ableitungs-Shortcut*: Für
 $f(x) = ln(x+c) arrow.r f'(x) = (x+c)^(-1), f''(x) = -(x+c)^(-2)$.
+
+== Extrema (18.6)
+*Extrema*: Notwendig: $f'(x)=0$. Hinreichend: $f'(x)=0$ und $f''(x) eq.not 0$
+($>0$ Min, $<0$ Max).
+
+== Approximation (18.10)
+*Lin. Appr.* (um $x_0$): $f(x_0) + f'(x_0)(x - x_0)$. *Taylor* Beste Appr. durch
+Polynom $n$-ten Grades bei $a$:
+$T_n (x) = sum_(k=0)^n (f^((k))(a)) / k! (x - a)^k$
+// *Spezialfall $a = 0$*: $f(0) + f'(0)x + (f''(0))/2 x^2 + ...$
+
+== $integral$ Integrale (18.12, 18.14)
+*Stammf.* $F$: $F'=f$. $integral_a^b f(x) thin d x = F(b) - F(a)$. *intervall*:
+$integral_a^b = -integral_b^a quad | quad integral_a^c = integral_a^b + integral_b^c$.
+*Linear*:
+$integral (f+g) = integral f + integral g quad | quad integral c f = c integral f$.
+*Monotonie*: $f <= g arrow.r integral f <= integral g$.
+
+
+*Partiell*:
+$integral f'(x) g(x) thin d x = f(x) g(x) - integral f(x) g'(x) thin d x$.
+
+*Subst.*:
+$integral_a^b f(g(x)) g'(x) thin d x = integral_(g(a))^(g(b)) f(z) thin d z$.
+
+*Doppel*: $integral integral ... d x d y$ Von innen nach außen
