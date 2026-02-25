@@ -41,8 +41,9 @@ Ergebnis ist in $RR^(n times k)$.
 
 == Inverse & Transposition (13.20)
 *Inv.*: $A B = I_n$ $thin$ | $thin$ 
-*Trans.*: $A^T (i, j) = A(j, i)$. $thin$ | $thin$ 
-*Symm.*: $A^T = A$.
+// *Trans.*: $A^T (i, j) = A(j, i)$. $thin$ | $thin$ 
+*Trans.*: $mat(a,c;b,d)^T= mat(a,b;c,d)$ $thin$ | $thin$ 
+*Symm.*: $A^T = A$
 
 #recipe("Abbildungsmatrix bestimmen")[
   1. Nimm die Standardbasisvektoren $e_1, ..., e_n$.
@@ -50,7 +51,7 @@ Ergebnis ist in $RR^(n times k)$.
   3. Bilder = *Spalten* 
 ]
 
-#recipe("Matrix-Multiplikation (Zeile (links) mal Spalte (rechts))")[
+#recipe("Matrix-Mult. Zeile links mal Spalte rechts")[
 $ mat(a, b; c, d) dot mat(e, f; g, h)
           = mat(
             a dot e + b dot g, a dot f + b dot h;
@@ -62,12 +63,8 @@ $ mat(a, b; c, d) dot mat(e, f; g, h)
 // Position (1,2): Zeile 1 von A * Spalte 2 von B
 ]
 
-#recipe("Inverse 2x2 (Determinanten-Formel)")[
-  Für $A = mat(a, b; c, d)$ gilt:
-  $ A^(-1) = 1/(a d - b c) mat(d, -b; -c, a) $
-  1. Tausche Hauptdiagonale ($a <-> d$).
-  2. Negiere Nebendiagonale ($b, c -> -b, -c$).
-  3. Teile durch Determinante ($a d-b c$).
+#recipe("Inverse 2x2")[
+  $mat(a, b; c, d)^(-1) = 1/(a d - b c) mat(d, -b; -c, a)$
 ]
 
 // #recipe("Inverse nxn (Gauss-Jordan)")[

@@ -36,3 +36,10 @@ $A in RR^(n times n)$ invertierbar $arrow.l.r$:
   1. *EW*: Berechne $det(A - lambda I) = 0$.
   2. *EV*: Für jedes $lambda$, löse $(A - lambda I) v = 0$.
 ]
+
+#recipe("pq-Formel")[
+  $
+  x^2 + p x + q = 0 \
+  x = -p/2 plus.minus sqrt( (p/2)^2 - q )
+  $
+]
